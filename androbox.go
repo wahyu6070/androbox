@@ -14,8 +14,31 @@ import(
 "time"
 )
 
+///////Base functions
 
 
+func CallClear() {
+    c := exec.Command("clear")
+    c.Stdout = os.Stdout
+    c.Run()
+}
+
+
+func printRed(input string){
+	//green color
+	fmt.Pri
+func printGreen(input string){
+	//green color
+	fmt.Println(string("\033[32m"), input,string("\033[0m"))
+	}
+
+
+
+func print(input string){
+	fmt.Print(input, "\n")
+	
+	}
+////
 
 func boost(){
 	fmt.Println("Boost CPU")
@@ -26,16 +49,7 @@ func boost(){
 	
 	
 	
-func printg(input string){
-	fmt.Println(string("\033[32m"), input,string("\033[0m"))
-	}
 
-
-
-func print(input string){
-	fmt.Print(input, "\n")
-	
-	}
 func device_info(){
 	stopp:
 	for true {
