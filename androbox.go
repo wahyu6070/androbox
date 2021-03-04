@@ -40,7 +40,6 @@ func printYellow(input string){
 	fmt.Println(string("\033[33m"), input,string("\033[0m"))
 	}
 	
-
 func printBlue(input string){
 	//Blue color
 	fmt.Println(string("\033[34m"), input,string("\033[0m"))
@@ -52,15 +51,15 @@ func printPurple(input string){
 	}
 func printCyan(input string){
 	//cyan color
-	fmt.Println(string("\033[35m"), input,string("\033[0m"))
+	fmt.Println(string("\033[36m"), input,string("\033[0m"))
 	}
 
 func printWhite(input string){
 	//cyan color
-	fmt.Println(string("\033[36m"), input,string("\033[0m"))
+	fmt.Println(string("\033[37m"), input,string("\033[0m"))
 	}
 func print(input string){
-	fmt.Print(input, "\n")
+	fmt.Print("\033[39m", input, "\n")
 	
 	}
 ////
@@ -81,7 +80,7 @@ func device_info(){
 		CallClear()
 		fmt.Println("             Device Info ")
 		print("  ")
-		print("••••SYSTEML••••")
+		print("••••SYSTEM••••")
 		if _, err := os.Stat("/data/adb/busybox"); err == nil {
     	printGreen("- Busybox=Installed\n");  
   		} else {
@@ -113,11 +112,13 @@ func about(){
 	stopp:
 	for true {
 		CallClear()
-		fmt.Println("             About ")
+		printGreen("             About ")
 		fmt.Println("  ")
-		fmt.Println("Androbox 1.0 (1) Beta")
-		fmt.Println("Androbox Lincense GPL2")
-    	
+		printCyan("Androbox 1.0 (1) Beta")
+		print(" Androbox Lincense GPL2")
+    	print(" ")
+    	printGreen("Contributors :")
+    	print("• wahyu6070 (wahyu kurniawan) •> Founder")
     	fmt.Println(" ")
     	fmt.Printf("1.Back\n")
     	fmt.Println(" ")
@@ -139,14 +140,14 @@ func main(){
 	for true {
 		CallClear()
 		
-		fmt.Println("      Androbox")
+		printGreen("            Androbox")
 		fmt.Println(" ")
 		fmt.Println(" 1.Boost")
 		fmt.Println(" 2.Device Info")
 		fmt.Println(" 3.About")
 		fmt.Println(" 4.Exit")
 		fmt.Println(" ")
-		fmt.Printf("  Select Menu : ")
+		fmt.Print("  Select Menu : ")
 		var inputterm int
 		fmt.Scanln(&inputterm)
 		switch inputterm {
@@ -159,7 +160,9 @@ func main(){
 			case 4:
 			break berhentii
 			default:
-			fmt.Println("!!! Please select menu")
+			print(" ")
+			print(" ")
+			printRed("!!! Please select menu")
 			time.Sleep(1 * time.Second)
 			
 			}
