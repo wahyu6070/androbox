@@ -24,16 +24,41 @@ func CallClear() {
 }
 
 
+
+/// COLOR functions
+///
 func printRed(input string){
-	//green color
-	fmt.Pri
+	//Red color
+	fmt.Println(string("\033[31m"), input,string("\033[0m"))
+	}
 func printGreen(input string){
 	//green color
 	fmt.Println(string("\033[32m"), input,string("\033[0m"))
 	}
+func printYellow(input string){
+	//Red color
+	fmt.Println(string("\033[33m"), input,string("\033[0m"))
+	}
+	
 
+func printBlue(input string){
+	//Blue color
+	fmt.Println(string("\033[34m"), input,string("\033[0m"))
+	}
 
+func printPurple(input string){
+	//Purple color
+	fmt.Println(string("\033[35m"), input,string("\033[0m"))
+	}
+func printCyan(input string){
+	//cyan color
+	fmt.Println(string("\033[35m"), input,string("\033[0m"))
+	}
 
+func printWhite(input string){
+	//cyan color
+	fmt.Println(string("\033[36m"), input,string("\033[0m"))
+	}
 func print(input string){
 	fmt.Print(input, "\n")
 	
@@ -56,11 +81,11 @@ func device_info(){
 		CallClear()
 		fmt.Println("             Device Info ")
 		print("  ")
-		print("••••KERNEL••••")
+		print("••••SYSTEML••••")
 		if _, err := os.Stat("/data/adb/busybox"); err == nil {
-    	printg("- Busybox=Installed\n");  
+    	printGreen("- Busybox=Installed\n");  
   		} else {
-    	printg("- Busybox=Not found");  
+    	printRed("- Busybox=Not found");  
     	}
     	print("••••KERNEL••••")
     	if _, err := os.Stat("/data/adb/busybox"); err == nil {
