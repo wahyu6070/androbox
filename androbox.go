@@ -58,8 +58,10 @@ func printWhite(input string){
 	//cyan color
 	fmt.Println(string("\033[37m"), input,string("\033[0m"))
 	}
+///
+
 func print(input string){
-	fmt.Print("\033[39m", input, "\n")
+	fmt.Print(" ", "\033[37m", input, "\n")
 	
 	}
 ////
@@ -78,17 +80,23 @@ func device_info(){
 	stopp:
 	for true {
 		CallClear()
-		fmt.Println("             Device Info ")
+		printBlue("             Device Info ")
 		print("  ")
-		print("••••SYSTEM••••")
-		if _, err := os.Stat("/data/adb/busybox"); err == nil {
-    	printGreen("- Busybox=Installed\n");  
+		printGreen("••••SYSTEM••••")
+		if _, err := os.Stat("/sbin/magisk"); err == nil {
+    	print("- Magisk=Installed");  
+  		} else {
+    	printRed("- Magisk=Not found");  
+    	}
+		if _, err := os.Stat("/system/xbin/busybox"); err == nil {
+    	print("- Busybox=Installed");  
   		} else {
     	printRed("- Busybox=Not found");  
     	}
-    	print("••••KERNEL••••")
+    	print(" ")
+    	printGreen("••••KERNEL••••")
     	if _, err := os.Stat("/data/adb/busybox"); err == nil {
-    	print("- Busybox=Installed\n");  
+    	print("- Busybox=Installed");  
   		} else {
     	print("- Busybox=Not found");  
     	}
@@ -115,7 +123,7 @@ func about(){
 		printGreen("             About ")
 		fmt.Println("  ")
 		printCyan("Androbox 1.0 (1) Beta")
-		print(" Androbox Lincense GPL2")
+		print("Androbox Lincense GPL2")
     	print(" ")
     	printGreen("Contributors :")
     	print("• wahyu6070 (wahyu kurniawan) •> Founder")
@@ -139,7 +147,6 @@ func main(){
 	berhentii:
 	for true {
 		CallClear()
-		
 		printGreen("            Androbox")
 		fmt.Println(" ")
 		fmt.Println(" 1.Boost")
